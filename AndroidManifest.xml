@@ -7,22 +7,28 @@
     <uses-sdk
         android:minSdkVersion="16"
         android:targetSdkVersion="19" />
+    
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:label="@string/app_name" >
         <activity
             android:name="com.hegel.lockscreen.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@android:style/Theme.NoDisplay" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <service
+            android:name="com.hegel.lockscreen.FloatService"
+            android:exported="false" >
+        </service>
         
         <receiver android:name=".AdminReceiver"
 			android:permission="android.permission.BIND_DEVICE_ADMIN">
@@ -33,6 +39,13 @@
 					android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
 			</intent-filter>
 		</receiver>
+		
+        <receiver android:name="com.hegel.lockscreen.BootBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" >
+                </action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

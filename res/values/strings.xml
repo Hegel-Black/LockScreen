@@ -2,7 +2,10 @@
 <resources>
 
     <string name="app_name">LockScreen</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="active">激活</string>
+    <string name="unactive">禁用</string>
+    <string name="syslock">系统锁屏</string>
+    <string name="custlock_on">打开悬浮球</string>
+    <string name="custlock_off">关闭悬浮球</string>
 
 </resources>
